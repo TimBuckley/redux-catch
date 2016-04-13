@@ -1,0 +1,6 @@
+{
+  "name": "redux-catch",
+  "tagline": "Error catcher middleware for Redux reducers and middlewares",
+  "body": "# redux-catch\r\nError catcher middleware for Redux reducers and middlewares.\r\n\r\n## API\r\n### Apply middleware\r\n```javascript\r\nimport { createStore, applyMiddleware } from 'redux';\r\n\r\nimport reduxCatch from 'redux-catch';\r\n\r\nimport reducer from './reducer';\r\n\r\nconst store = createStore(reducer, applyMiddleware(\r\n  reduxCatch(error => console.error(error))\r\n));\r\n```\r\n- `reduxCatch` receive a function to use when an error happen.\r\n- The error handler function could be just a `console.error` like the example above or a function to log the error in some kind of error tracking platform.\r\n- You should use this middleware as the first middleware in the chain, so its allowed to catch all the possible errors in the application.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>redux-catch by sergiodxa</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>redux-catch</h1>
+        <p>Error catcher middleware for Redux reducers and middlewares</p>
+
+        <p class="view"><a href="https://github.com/sergiodxa/redux-catch">View the Project on GitHub <small>sergiodxa/redux-catch</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/sergiodxa/redux-catch/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/sergiodxa/redux-catch/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/sergiodxa/redux-catch">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="redux-catch" class="anchor" href="#redux-catch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>redux-catch</h1>
+
+<p>Error catcher middleware for Redux reducers and middlewares.</p>
+
+<h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h2>
+
+<h3>
+<a id="apply-middleware" class="anchor" href="#apply-middleware" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Apply middleware</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> { <span class="pl-smi">createStore</span>, <span class="pl-smi">applyMiddleware</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>redux<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">reduxCatch</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>redux-catch<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">reducer</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./reducer<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">const</span> <span class="pl-c1">store</span> <span class="pl-k">=</span> <span class="pl-en">createStore</span>(reducer, <span class="pl-en">applyMiddleware</span>(
+  <span class="pl-en">reduxCatch</span>(<span class="pl-smi">error</span> <span class="pl-k">=&gt;</span> <span class="pl-en">console</span>.<span class="pl-c1">error</span>(error))
+));</pre></div>
+
+<ul>
+<li>
+<code>reduxCatch</code> receive a function to use when an error happen.</li>
+<li>The error handler function could be just a <code>console.error</code> like the example above or a function to log the error in some kind of error tracking platform.</li>
+<li>You should use this middleware as the first middleware in the chain, so its allowed to catch all the possible errors in the application.</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/sergiodxa">sergiodxa</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
